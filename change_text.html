@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ksidedev</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <h3>Change/toggle text</h3>
+    <div id="content"></div>
+
+    <script type="text/jsx">
+    
+        var ContentBoxComponent = React.createClass({
+            replaceText: function() {
+                var changeText = document.getElementById('changeMe')
+                var newText = 'Merry Xmas'
+                changeText.innerHTML = newText
+            },
+            toggleText: function() {
+                var changeText = document.getElementById('changeMe')
+                var newText = 'Merry Xmas'
+                var secondText = 'Happy New Year'
+                if(changeText.innerHTML == secondText){
+                    changeText.innerHTML = newText
+                }else{
+                    changeText.innerHTML = secondText
+                }
+            },
+            render: function(){
+                return (
+                    <div>
+                        <h3 className="header">Demo</h3>
+                        <div className="padded-container">
+                            <h2 id="changeMe">Wishing you</h2>
+                            <button onClick={this.replaceText}>Change text</button>
+                            <button onClick={this.toggleText}>Toggle text</button>
+                        </div>
+                    </div>
+                )
+            }
+        })
+
+        React.render(
+            <ContentBoxComponent />,
+            document.getElementById('content'))
+    </script>
+    
+
+
+    <div class="showCode" style="margin-top: 40px; background-color: #DDDDDD;">
+        <h3 class="header">Code</h3>
+        <script src="https://gist.github.com/anonymous/d7c555911dab0580ef66336c187bed4c.js"></script>
+    </div>
+
+
+
+    
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ksidedev</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <h3>Show / hide text</h3>
+    <div id="content"></div>
+
+    <script type="text/jsx">
+    
+        var ContentBoxComponent = React.createClass({
+
+            hideText: function() {
+                var hideShow = document.getElementById('hideMe')
+                hideShow.style.visibility = 'hidden'
+            },
+
+            showText: function() {
+                var hideShow = document.getElementById('hideMe')
+                hideShow.style.visibility = 'visible'
+            },
+
+            toggleText: function() {
+                var hideShow = document.getElementById('hideMe')
+
+                if(hideShow.style.visibility == 'hidden'){
+                    hideShow.style.visibility = 'visible'
+                }else{
+                    hideShow.style.visibility = 'hidden'
+                }
+            },
+
+            render: function(){
+                return (
+                    <div>
+                        <h3 className="header">Demo</h3>
+                        <div className="padded-container">
+                            <h2 id="hideMe" style={this.hideShow}>Text to toggle</h2>
+                            <button onClick={this.hideText}>Hide text</button>
+                            <button onClick={this.showText}>Show text</button>
+                            <button onClick={this.toggleText}>Toggle text</button>
+                        </div>
+
+                    </div>
+                )
+            }
+        })
+
+        React.render(
+            <ContentBoxComponent />,
+            document.getElementById('content'))
+    </script>
+    
+
+
+    <div class="showCode">
+        <h3 class="header">Code</h3>
+        <script src="https://gist.github.com/anonymous/97e7899a1ca06e1f383e36dc4e772865.js"></script>
+    </div>
+</body>
+</html>
