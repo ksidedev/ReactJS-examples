@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="js/react.min.js"></script>
+    <script src="js/react-dom.min.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+
+     <script type="text/babel">
+    
+        var Checkbox = React.createClass({
+
+            getInitialState: function() {
+                return {checked: true}
+            },
+
+            handleChecked: function() {
+                this.setState({checked: !this.state.checked});
+            },
+
+           
+            render: function(){
+                var msg;
+
+                if(this.state.checked) {
+                    msg = 'checked'
+                }else{
+                     msg = 'unchecked'
+                }
+
+                return (
+                        <div>
+                            <input type="checkbox" onChange={this.handleChecked} defaultChecked={this.state.checked} />
+                            <h3>Checkbox is {msg}</h3>
+                        </div>
+                )
+            }
+        });
+
+        ReactDOM.render(<Checkbox />, document.getElementById('container'));
+
+     </script>
+
+    <div class="showCode">
+        <h3 class="header">Code</h3>
+        <script src="https://gist.github.com/ksidedev/86ab7da8de759c765a67d7d55b0c53b8.js"></script>
+    </div> 
+
+</body>
+</html>
